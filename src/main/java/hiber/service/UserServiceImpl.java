@@ -26,15 +26,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    public void update(User user) {
+        userDao.update(user);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<User> listUsers() {
         return userDao.listUsers();
     }
-
-
-    @Override
-    @Transactional
-    public List<User> findByCar(String model, int series) {
-        return userDao.findByCar(model, series);
-    }
-
 }
